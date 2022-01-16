@@ -132,7 +132,7 @@ android {
 
     defaultConfig {
         applicationId "com.newrlloans"
-        manifestPlaceholders = [auth0Domain: "dev-an26gea1.us.auth0.com", auth0Scheme: "${applicationId}"]
+        // manifestPlaceholders = [auth0Domain: "dev-an26gea1.us.auth0.com", auth0Scheme: "${applicationId}"]
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

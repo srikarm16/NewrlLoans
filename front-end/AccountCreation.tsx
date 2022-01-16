@@ -12,12 +12,15 @@ import {
   View 
 } from 'react-native';
 import axios from 'axios';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 const AccountCreation = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
   const submitForm = async (e) => {
+
+    console.log("Submitted Form!!");
 
     const baseUrl = "https://random"; //NEEDS TO CHANGE
 
@@ -30,6 +33,14 @@ const AccountCreation = () => {
 
     e.preventDefault();
   }
+
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
+  const [items, setItems] = useState([
+    {label: 'Borrower', value: 'borrower'},
+    {label: 'Lender', value: 'lender'},
+    {label: 'Security Provider', value: 'security provider'}
+  ]);
 
   return (
     <View style={styles.form}>
@@ -44,6 +55,14 @@ const AccountCreation = () => {
         placeholder="Last Name"
         // onBlur={Keyboard.dismiss}
         onChangeText={name => setLastName(name)}
+      />
+      <DropDownPicker
+        open={open}
+        value={value}
+        items={items}
+        setOpen={setOpen}
+        setValue={setValue}
+        setItems={setItems}
       />
       <TouchableOpacity style={styles.createProfile} onPress={submitForm}>
         <Text>Create Profile</Text>

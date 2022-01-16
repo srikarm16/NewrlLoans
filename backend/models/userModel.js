@@ -12,6 +12,20 @@ const userSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
+    accountType: {
+      type: String,
+      required: true,
+    },
+    loans: [
+      {
+        type: mongoose.Types.ObjectId,
+      },
+    ],
+    assets: [
+      {
+        type: mongoose.Types.ObjectId,
+      }
+    ],
     password: {
       type: String,
       required: true,
