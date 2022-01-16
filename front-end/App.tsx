@@ -2,13 +2,22 @@
 
 import React from 'react';
 import { View } from 'react-native';
-import AccountCreation from './AccountCreation';
+import RegisterScreen from './screens/RegisterScreen';
+import { NavigationContainer } from "@react-navigation/native"
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import axios from "axios"
+
+axios.defaults.baseURL = "http://localhost:5000"
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <View>
-      <AccountCreation />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Register">
+        <Stack.Screen name="Register" component={RegisterScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

@@ -24,7 +24,7 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-  <key>CFBundleURLTypes</key>
+  <!-- <key>CFBundleURLTypes</key>
   <array>
       <dict>
           <key>CFBundleTypeRole</key>
@@ -36,7 +36,7 @@
               <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
           </array>
       </dict>
-  </array>
+  </array> -->
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
