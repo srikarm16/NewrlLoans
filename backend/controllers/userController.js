@@ -40,7 +40,9 @@ const registerUser = asyncHandler(async (req, res) => {
 
   if (userExists) {
     res.status(404);
-    throw new Error("User already exists");
+    // throw new Error("User already exists");
+    console.log("user exists");
+    return;
   }
 
   const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
@@ -63,6 +65,8 @@ const registerUser = asyncHandler(async (req, res) => {
     accountType,
     privateKey,
   });
+
+  console.log("user created");
 
   if (user) {
     res.status(201).json({

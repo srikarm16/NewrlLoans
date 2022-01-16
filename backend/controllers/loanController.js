@@ -132,7 +132,7 @@ web3.eth.getAccounts().then(data => {
       stateMutability: "nonpayable",
     },
     
-  ], '0xf223E077a2E8D2072C261bC703Fc3a423667a9A6', {
+  ], '0x1b72c6C3ad990122D095414F45beBA39c761Ed12', {
     from: admin,      
   });
 })
