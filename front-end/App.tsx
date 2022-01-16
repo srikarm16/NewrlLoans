@@ -2,11 +2,12 @@
 
 import React from 'react';
 import { View } from 'react-native';
+import AccountCreation from './AccountCreation';
 
 const App = () => {
   return (
     <View>
-
+      <AccountCreation />
     </View>
   );
 }
