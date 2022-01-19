@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavigationScreenProp } from "react-navigation";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  login
+} from "../actions/userActions";
 import {
     View,
     Text,
@@ -17,21 +21,23 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const userLogin = useSelector((state) => state.userLogin);
+  const {loading, error, userInfo} = userLogin;
+
+  useEffect(() => {
+    if (userInfo) {
+      navigation.navigate("UserHome");
+    }
+  }, [navigation, userInfo]);
+
+  const dispatch = useDispatch();
+
   const register = () => {
       navigation.navigate("Register");
   }
 
   const submitForm = async () => {
-
-    try {
-      await axios.post(
-          `/api/users/login`, 
-          { email, password }
-      );
-      navigation.navigate("UserHome");
-    } catch (err) {
-      console.log("User Already Exists: try again");
-    }
+    dispatch(login(email, password));
   }
 
 

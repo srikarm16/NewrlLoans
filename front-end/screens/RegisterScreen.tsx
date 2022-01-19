@@ -24,9 +24,9 @@ const RegisterScreen = ({ navigation }: RegisterScreenProps) => {
 
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState([
-    {label: 'Borrower', value: 'borrower'},
-    {label: 'Lender', value: 'lender'},
-    {label: 'Security Provider', value: 'security provider'}
+    {label: 'Borrower', value: 'Borrower'},
+    {label: 'Lender', value: 'Lender'},
+    {label: 'Security Provider', value: 'Security Provider'}
   ]);
 
   const login = () => {
@@ -34,6 +34,7 @@ const RegisterScreen = ({ navigation }: RegisterScreenProps) => {
   }
 
   const submitForm = async (e: any) => {
+    console.log("Hello World");
 
     try {
       const { data } = await axios.post(

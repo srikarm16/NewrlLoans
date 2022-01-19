@@ -21,7 +21,7 @@ const authUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      pic: user.pic,
+      accountType: user.accountType,
       token: generateToken(user._id),
     });
   } else {
@@ -74,7 +74,7 @@ const registerUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      pic: user.pic,
+      accountType: user.accountType,
       token: generateToken(user._id),
     });
   } else {
@@ -103,7 +103,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
-      pic: updatedUser.pic,
+      accountType: user.accountType,
       isAdmin: updatedUser.isAdmin,
       token: generateToken(updatedUser._id),
     });
@@ -113,4 +113,19 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-export { authUser, updateUserProfile, registerUser };
+const accountType = async (req, res) => {
+  console.log("Fetching Account Type");
+  // const user = await User.findById(req.user._id);
+  console.log(req.user);
+  console.log(req.user.name);
+  console.log(req.user.accountType);
+
+  if (req.user.accountType) {
+    res.json({accountType: req.user.accountType});
+  } else {
+    res.status(404);
+    throw new Error("User Not Found");
+  }
+};
+
+export { authUser, accountType, updateUserProfile, registerUser };
