@@ -25,6 +25,7 @@ const SecurityProvider = ({ navigation }: SecurityProviderProps) => {
     return (
         <FloatingAction
             actions={[]}
+            
             onPressItem={name => {
             console.log(`selected button: ${name}`);
             }}
