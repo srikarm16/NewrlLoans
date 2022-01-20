@@ -5,6 +5,9 @@ import {
   userRegisterReducer,
   userUpdateReducer,
 } from "./reducers/userReducers";
+import {
+  assetReducer,
+} from "./reducers/loanReducers";
 // import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export interface ReduxState {
@@ -48,6 +51,7 @@ const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
   userUpdate: userUpdateReducer,
+  assets: assetReducer,
 });
 
 

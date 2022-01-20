@@ -1,19 +1,26 @@
-import { ActivityIndicatorBase } from "react-native";
 import {
-  USER_LOGIN_FAIL,
-  USER_LOGIN_REQUEST,
-  USER_LOGIN_SUCCESS,
-  USER_LOGOUT,
-  USER_REGISTER_FAIL,
-  USER_REGISTER_REQUEST,
-  USER_REGISTER_SUCCESS,
-  USER_UPDATE_FAIL,
-  USER_UPDATE_REQUEST,
-  USER_UPDATE_SUCCESS, } from "../constants/userConstants";
+  ASSET_ADD_DATA_ADDED,
+  ASSET_ADD_DATA_REQUEST,
+  ASSET_LOAD_COMPLETED,
+  ASSET_LOAD_STARTED
+} from "../constants/loanConstants";
 
-export const assetReducer = (state = {}, action: any) {
+export const assetReducer = (state = { assetLoaded: false, }, action: any) => {
     switch(action.type) {
-        default: 
-            return state;
+      case ASSET_LOAD_STARTED:
+        return {
+          ...state,
+          assetLoading: true,
+        };
+      case ASSET_LOAD_COMPLETED:
+        return {
+          ...state,
+          assetLoading: false,
+          assetLoaded: true,
+          data: action.payload.data,
+          error: action.payload.error,
+        };
+      default: 
+          return state;
     }
 }

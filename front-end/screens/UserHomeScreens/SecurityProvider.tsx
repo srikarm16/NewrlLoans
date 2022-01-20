@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
     View,
     Text,
@@ -6,6 +6,7 @@ import {
     TouchableOpacity,
 } from "react-native";
 import { NavigationScreenProp } from "react-navigation";
+import { useSelector, useDispatch } from "react-redux";
 import { FloatingAction } from "react-native-floating-action";
 
 interface SecurityProviderProps {
@@ -13,23 +14,32 @@ interface SecurityProviderProps {
 }
 
 const SecurityProvider = ({ navigation }: SecurityProviderProps) => {
+    console.log(navigation);
 
-    const registerAsset = () => {
 
-    }
+    const state = useSelector((state: any) => state.assets);
+    const dispatch = useDispatch();
 
-    const connectToBorrowers = () => {
-
-    }
+    useEffect(() => {
+        
+    }, [dispatch]);
 
     return (
-        <FloatingAction
-            actions={[]}
-            
-            onPressItem={name => {
-            console.log(`selected button: ${name}`);
-            }}
-        />
+        <React.Fragment>
+            <View>
+            </View>
+            <FloatingAction
+                actions={[]}
+                onPressMain={() => {
+                    console.log("NAVIGATION: ", navigation);
+                    // console.log("Main Pressed");
+                    navigation.navigate("RegisterAssetForm");
+                }}
+                onPressItem={name => {
+                    console.log(`selected button: ${name}`);
+                }}
+            />
+        </React.Fragment>
     );
 }
 

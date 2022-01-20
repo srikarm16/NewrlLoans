@@ -4,13 +4,14 @@ import React from 'react';
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
 import UserHomeScreen from './screens/UserHomeScreen';
+import RegisterAssetForm from './screens/UserHomeScreens/RegisterAssetForm';
 import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import axios from "axios"
 import store from "./store";
 import { Provider } from "react-redux";
 
-axios.defaults.baseURL = "http://192.168.1.213:5000" 
+axios.defaults.baseURL = "http://192.168.1.34:5000" 
 // axios.defaults.baseURL = "http://localhost:5000"
 
 const Stack = createNativeStackNavigator();
@@ -34,6 +35,7 @@ const App = () => {
           <Stack.Screen name="Register" component={RegisterScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="UserHome" component={UserHomeScreen} />
+          <Stack.Screen name="RegisterAssetForm" component={RegisterAssetForm} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

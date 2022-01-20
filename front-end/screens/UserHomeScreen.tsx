@@ -23,9 +23,9 @@ const UserHomeScreen = ({ navigation }: UserHomeScreenProps) => {
 
     return (
         <View style={styles.container}>
-            {userInfo && userInfo.accountType === "Borrower" && <Borrower/>}
-            {userInfo && userInfo.accountType === "Lender" && <Lender/>}
-            {userInfo && userInfo.accountType === "Security Provider" && <SecurityProvider/>}
+            {userInfo && userInfo.accountType === "Borrower" && <Borrower />}
+            {userInfo && userInfo.accountType === "Lender" && <Lender />}
+            {userInfo && userInfo.accountType === "Security Provider" && <SecurityProvider navigation={navigation} />}
         </View>
     );
 }
